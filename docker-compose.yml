@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   db:
-    image: mysql:8.0
+    image: mysql:${MYSQ_VERSION:-5.7}
     restart: always
     environment:
       MYSQL_DATABASE: 'db'
