@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   db:
-    image: mysql:${MYSQ_VERSION:-5.7}
+    image: mysql:${MYSQL_VERSION:-5.7}
     restart: always
     environment:
       MYSQL_DATABASE: 'db'
@@ -21,3 +21,19 @@ services:
     volumes:
       - ./data:/var/lib/mysql
       - ./config/my.cnf:/etc/mysql/conf.d/my.cnf
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - '8080:80'   # เข้าใช้งานจาก http://localhost:8080
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      # (ไม่จำเป็น) หากต้องการให้ฟิลด์ล็อกอินถูกกรอกอัตโนมัติ:
+      PMA_USER: ${MYSQL_USER:-dbuser}
+      PMA_PASSWORD: ${MYSQL_PASSWORD:-iamPassword}
+    # (ตัวอย่างเก็บ session ของ phpmyadmin ถ้าต้องการ)
+    volumes:
+      - /sessions
