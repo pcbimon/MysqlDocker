@@ -1,5 +1,3 @@
-# MySQL in Docker Compose
-<!-- Polished README for the MysqlDocker project -->
 # MySQL with Docker Compose
 
 A minimal Docker Compose setup for running MySQL locally with persistent storage and an optional phpMyAdmin web UI.
