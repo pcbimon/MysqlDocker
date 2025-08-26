@@ -20,7 +20,7 @@ services:
       # Where our data will be persisted
     volumes:
       - ./data:/var/lib/mysql
-      - ./config/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./config/my.cnf:/etc/mysql/conf.d/my.cnf:ro
   phpmyadmin:
     image: phpmyadmin:latest
     restart: always
