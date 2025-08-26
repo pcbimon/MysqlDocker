@@ -1,4 +1,3 @@
-// ...existing code...
 # MySQL in Docker Compose
 <!-- Polished README for the MysqlDocker project -->
 # MySQL with Docker Compose
